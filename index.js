@@ -2,13 +2,14 @@ const express = require("express");
 const http = require("http");
 const socketIo = require("socket.io");
 const cors = require('cors')
+const path = require('path')
 
 const port = 8080;
 
 const router = express.Router();
-router.get("/", (req, res) => {
-  res.send({ response: "I am alive" }).status(200);
-});
+// router.get("/", (req, res) => {
+//   res.send({ response: "I am alive" }).status(200);
+// });
 
 const app = express();
 app.use(router);
@@ -24,7 +25,29 @@ const io = socketIo(server, {
   }
 });
 
-app.use(cors())
+const whitelist = ['http://localhost:3000', 'http://localhost:8080'];
+const corsOptions = {
+  origin: function(origin, callback) {
+    console.log("** Origin of request " + origin);
+    if(whitelist.indexOf(origin)!= 1 || !origin){
+      console.log("Origin acceptable");
+      callback(null, true);
+    }
+    else {
+      console.log("Origin rejected");
+      callback(new Error("Not allowed by CORS"));
+    }
+  }
+}
+app.use(cors(corsOptions))
+// console.log(process.env.NODE_ENV);
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static(path.join(__dirname, 'client/build')));
+
+  app.get('*', function(req,res){
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+  });
+}
 
 io.of('/getCO2MeasurementData').on("connection", (socket) => {
   console.log('connection has established')

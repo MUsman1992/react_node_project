@@ -4,7 +4,7 @@ const socketIo = require("socket.io");
 const cors = require('cors')
 const path = require('path')
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 const router = express.Router();
 // router.get("/", (req, res) => {

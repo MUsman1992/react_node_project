@@ -1,0 +1,29 @@
+#co2measurementsData {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+#co2measurementsData td, #customers th {
+    padding: 8px;
+    text-align: center;
+    color: white;
+  }
+
+#co2measurementsData th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #fc8c03;
+}
+
+.co2_threshold_green_row {
+    background-color: green;
+}
+
+.co2_threshold_red_row {
+    background-color: red;
+}
+
+.co2_threshold_yellow_row {
+    background-color: yellow;
+}

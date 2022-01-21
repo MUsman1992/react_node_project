@@ -1,0 +1,42 @@
+.co2_threshold_green {
+  padding: 20px;
+  border: 1px dashed green;
+  text-align: center;
+  vertical-align: middle;
+  background:green;
+  color: white;
+  height: 90px;
+  width: 90px;
+  line-height: 90px;
+  font-size: 20px;
+  margin:auto
+}
+
+.co2_threshold_red {
+  
+  padding: 20px;
+  border: 1px dashed red;
+  text-align: center;
+  vertical-align: middle;
+  background:red;
+  color: white;
+  height: 90px;
+  width: 90px;
+  line-height: 90px;
+  font-size: 20px;
+  margin:auto;
+}
+
+.co2_threshold_yellow {
+  padding: 20px;
+  border: 1px dashed yellow;
+  text-align: center;
+  vertical-align: middle;
+  background:yellow;
+  color: white;
+  height: 90px;
+  width: 90px;
+  line-height: 90px;
+  font-size: 20px;
+  margin:auto;
+}
